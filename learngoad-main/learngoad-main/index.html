@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Network | Integrated Digital Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary-color: #0f172a; /* Biru Gelap - Corporate */
+            --accent-color: #2563eb;  /* Biru Terang - Tech */
+            --light-bg: #f8fafc;
+            --text-color: #334155;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            /* Background Image bertema Jaringan/Server */
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.7)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            background: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        /* --- SERVICES SECTION --- */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            padding: 40px 30px;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--accent-color);
+        }
+
+        .service-card i {
+            font-size: 45px;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-section {
+            background-color: var(--light-bg);
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .features-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .features-list li i {
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+
+        /* --- CTA / CONTACT --- */
+        .cta-section {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-section .btn {
+            background: var(--white);
+            color: var(--accent-color);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 50px 8% 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; } /* Hamburger menu could be added here */
+            .about-container { flex-direction: column; }
+            section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MY NETWORK<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#about">Profil</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Empowering Connection,<br>Simplifying Solutions.</h1>
+        <p>Solusi infrastruktur digital terpadu mulai dari Internet Fiber Optik, Manajemen Cloud, hingga Keamanan Siber untuk mendukung percepatan bisnis Anda.</p>
+        <a href="#contact" class="btn">Konsultasi Sekarang</a>
+    </section>
+
+    <section id="services">
+        <div class="section-title">
+            <h2>Solusi Terintegrasi Kami</h2>
+            <p>6 Layanan Utama untuk kebutuhan Digital dan Infrastruktur Anda</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>My Fiber Connect</h3>
+                <p>Internet rumah & bisnis tanpa batas dengan teknologi 100% Fiber Optic murni untuk kecepatan dan stabilitas maksimal.</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fa-solid fa-server"></i>
+                <h3>Infrastructure Design</h3>
+                <p>Pembangunan infrastruktur fisik jaringan (LAN), instalasi Rack Server, Switch, dan penataan kabel data yang rapi.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-wifi"></i>
+                <h3>My WiFi Cloud Managed</h3>
+                <p>Sistem WiFi cerdas yang dikelola terpusat via dashboard cloud. Pantau ratusan titik akses hanya dari satu layar.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-cloud"></i>
+                <h3>Business Cloud Solutions</h3>
+                <p>Modernisasi operasional dengan penyimpanan awan (Cloud Storage), hosting aplikasi, dan integrasi sistem kerja remote.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Cyber Security</h3>
+                <p>Perlindungan data aset digital Anda dengan Firewall tingkat lanjut, VPN Site-to-Site, dan enkripsi jaringan.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-headset"></i>
+                <h3>Priority Support 24/7</h3>
+                <p>Tim teknis ahli yang siap siaga memantau jaringan Anda dengan jaminan SLA dan respon cepat.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="Tim My Network">
+            </div>
+            <div class="about-text">
+                <h2>Tentang My Network</h2>
+                <p>Didirikan pada akhir tahun 2025, <strong>My Network</strong> hadir sebagai jembatan masa depan digital. Kami bukan sekadar penyedia internet, melainkan mitra strategis yang mengintegrasikan infrastruktur fisik dengan kecanggihan teknologi Cloud.</p>
+                <br>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Konektivitas Stabil (Fiber Optic)</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Manajemen Terpusat (Cloud First)</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Keamanan Data Prioritas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <h2>Siap Mengupgrade Jaringan Bisnis Anda?</h2>
+        <p>Hubungi tim kami hari ini untuk mendapatkan penawaran desain jaringan dan audit gratis.</p>
+        <a href="mailto:project@mynetwork.id" class="btn">Hubungi Kami</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My Network. All rights reserved.</p>
+        <p>Connecting People, Empowering Business.</p>
+    </footer>
+
+</body>
+</html>
